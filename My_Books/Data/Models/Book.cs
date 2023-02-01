@@ -1,4 +1,6 @@
-﻿namespace my_books.Data.Models
+﻿using System;
+
+namespace my_books.Data.Models
 {
     public class Book
     {
