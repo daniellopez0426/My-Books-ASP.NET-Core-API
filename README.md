@@ -10,7 +10,7 @@
 
 ## Add Migration
 # `Add-Migration InitialDatabseMigration`
-# `Updated-Database`
+# `Update-Database`
 
 ## Add Docker SQL Server
 
