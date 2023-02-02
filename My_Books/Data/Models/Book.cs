@@ -7,7 +7,7 @@ namespace my_books.Data.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string IsRead { get; set; }
+        public Boolean IsRead { get; set; }
         public DateTime? DateRead { get; set; }
         public int? Rate { get; set; }
         public string Genre { get; set; }
