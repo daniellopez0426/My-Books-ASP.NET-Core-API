@@ -1,8 +1,8 @@
 ### My Books
 
-## Tools/NuGet/Package Manager Console
+## Tools/NuGet/Package Manager Console `version 5.0.2`
 
-# `Install-Package Microsoft.EntityFrameworkCore`
+# `Install-Package Microsoft.EntityFrameworkCore` 
 
 # `Install-Package Microsoft.EntityFrameworkCore.SqlServer`
 
