@@ -1,7 +1,7 @@
-﻿using My_Books.Data.Models;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
-namespace my_books.Data.Models
+namespace My_Books.Data.Models
 {
     public class Book
     {
@@ -19,6 +19,8 @@ namespace my_books.Data.Models
         //Navigation Properties
         public int PublisherId { get; set; }
         public Publisher Publisher { get; set; }
+
+        public List<Book_Author> Book_Author { get; set; }
 
     }
 }
