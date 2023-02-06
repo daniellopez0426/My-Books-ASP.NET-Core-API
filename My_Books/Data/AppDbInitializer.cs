@@ -24,7 +24,6 @@ namespace My_Books.Data
                         DateRead= DateTime.Now.AddDays(-10),
                         Rate= 4,
                         Genre= "Bio",
-                        Author= "First Author",
                         CoverUrl= "https://....",
                         DateAdded= DateTime.Now
                     },
@@ -34,7 +33,6 @@ namespace My_Books.Data
                         Description = "2st Book Description",
                         IsRead = false,
                         Genre = "Math",
-                        Author = "Secounf Author",
                         CoverUrl = "https://....",
                         DateAdded = DateTime.Now
                     });
