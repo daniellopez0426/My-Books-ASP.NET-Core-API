@@ -41,6 +41,8 @@ namespace My_Books
             services.AddTransient<BooksService>();
             services.AddTransient<AuthorsService>();
             services.AddTransient<PublishersService>();
+            services.AddTransient<MachinesService>();
+            services.AddTransient<CountriesService>();
 
             services.AddSwaggerGen(c =>
             {
