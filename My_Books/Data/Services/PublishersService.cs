@@ -37,5 +37,15 @@ namespace My_Books.Data.Services
             return _publisherData;
         }
 
+        public void DeletePublisherById(int id)
+        {
+            var _publisher = _context.Publisher.FirstOrDefault(n => n.Id == id);
+
+            if(_publisher != null)
+            {
+                _context.Publisher.Remove(_publisher);
+                _context.SaveChanges();
+            }
+        }
     }
 }
