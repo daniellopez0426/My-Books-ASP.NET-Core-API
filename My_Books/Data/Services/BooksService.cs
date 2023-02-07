@@ -47,11 +47,27 @@ namespace My_Books.Data.Services
 
         public List<Book> GetAllBooks() =>  _context.Books.ToList();
 
-        public Book GetBookById(int bookId) => _context.Books.FirstOrDefault(x => x.Id == bookId);
+        public BookWithAuthorsVM GetBookById(int bookId) 
+        {
+            var _bookWithAuthors = _context.Books.Where(n => n.Id == bookId).Select( book => new BookWithAuthorsVM()
+            {
+                Title = book.Title,
+                Description = book.Description,
+                IsRead = book.IsRead,
+                DateRead = book.IsRead ? book.DateRead.Value : null,
+                Rate = book.IsRead ? book.Rate.Value : null,
+                Genre = book.Genre,
+                CoverUrl = book.CoverUrl,
+                PublisherNames = book.Publisher.Name,
+                AuthorNames = book.Book_Author.Select(n => n.Author.FullName).ToList()
+            }).FirstOrDefault();
+
+            return _bookWithAuthors;
+        }
 
         public Book UpdateBookById(int bookId, BookVM book)
         {
-            var _book  = this.GetBookById(bookId);
+            var _book  = _context.Books.FirstOrDefault(x => x.Id == bookId);
             if(_book != null )
             {
                 _book.Title = book.Title;
@@ -69,7 +85,7 @@ namespace My_Books.Data.Services
          
         public void DeleteBookById(int bookId)
         {
-            var _book = this.GetBookById(bookId);
+            var _book = _context.Books.FirstOrDefault(x => x.Id == bookId);
             if(_book != null)
             {
                 _context.Books.Remove(_book);
