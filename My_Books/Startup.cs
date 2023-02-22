@@ -68,7 +68,8 @@ namespace My_Books
             app.UseAuthorization();
 
             //Exception Handling
-            app.ConfigureBuildInExceptionHandler();
+            //app.ConfigureBuildInExceptionHandler();
+            app.ConfigureCustomExceptionHandler();
 
             app.UseEndpoints(endpoints =>
             {
