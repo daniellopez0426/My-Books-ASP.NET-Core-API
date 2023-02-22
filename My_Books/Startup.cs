@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using My_Books.Data;
 using My_Books.Data.Services;
+using My_Books.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,9 @@ namespace My_Books
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Exception Handling
+            app.ConfigureBuildInExceptionHandler();
 
             app.UseEndpoints(endpoints =>
             {
