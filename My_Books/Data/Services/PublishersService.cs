@@ -16,7 +16,7 @@ namespace My_Books.Data.Services
             _context = context;
         }
 
-        public List<Publisher> GetAllPublishers(string sortBy) 
+        public List<Publisher> GetAllPublishers(string sortBy, string searchString) 
         { 
             var allPublishers = _context.Publisher.OrderBy(n => n.Name).ToList();
 
@@ -30,6 +30,11 @@ namespace My_Books.Data.Services
                     default:
                         break;
                 }
+            }
+
+            if(!string.IsNullOrEmpty(searchString))
+            {
+               allPublishers = allPublishers.Where(n => n.Name.Contains(searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
             }
 
             return allPublishers;
