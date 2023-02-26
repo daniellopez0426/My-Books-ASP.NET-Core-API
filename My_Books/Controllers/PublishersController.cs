@@ -19,6 +19,20 @@ namespace My_Books.Controllers
             _puslishersService = puslishersService;
         }
 
+        [HttpGet("get-all-publishers")]
+        public IActionResult GetAllPublishers(string sortBy)
+        {
+            try
+            {
+                var _result = _puslishersService.GetAllPublishers(sortBy);
+                return Ok(_result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
         [HttpPost("add-puslisher")]
         public IActionResult AddPuslisher([FromBody] PublisherVM puslisher)
         {

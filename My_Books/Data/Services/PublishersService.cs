@@ -2,6 +2,7 @@
 using My_Books.Data.ViewModels;
 using My_Books.Exceptions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -13,6 +14,25 @@ namespace My_Books.Data.Services
         public PublishersService(AppDbContext context)
         {
             _context = context;
+        }
+
+        public List<Publisher> GetAllPublishers(string sortBy) 
+        { 
+            var allPublishers = _context.Publisher.OrderBy(n => n.Name).ToList();
+
+            if(!string.IsNullOrEmpty(sortBy))
+            {
+                switch (sortBy)
+                {
+                    case "name_desc":
+                        allPublishers = allPublishers.OrderByDescending(n => n.Name).ToList();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return allPublishers;
         }
         public Publisher AddPublisher(PublisherVM publisher)
         {
